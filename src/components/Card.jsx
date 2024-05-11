@@ -1,16 +1,21 @@
-/* eslint-disable react/prop-types */
 
+/* eslint-disable react/prop-types */
+import { motion } from "framer-motion";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-function Card({ width, start, para, hover = "false", heading }) {
+function Card({ width, start, para, hover = "false",heading }) {
   return (
-    <div
+    <motion.div
+      whileHover={{
+        backgroundColor: hover === "true" && "#7443ff",
+        padding: "25px",
+      }}
       className={`bg-zinc-800 p-5 rounded-xl hover:${hover} ${width} min-h-[30rem] flex flex-col justify-between`}
     >
       <div className="w-full">
         <div className="w-full flex justify-between items-center">
-          {start === true ? (
+        {start === true ? (
             <h1 className="text-sm  ">Get In Touch</h1>
           ) : (
             <h1 className="text-sm ">Up Next: Projects</h1>
@@ -41,11 +46,11 @@ function Card({ width, start, para, hover = "false", heading }) {
 
         {para && (
           <p className="text-sm text-zinc-500 font-medium">
-            Web Design, Webflow Development, and Creative Development.
+            Lorem ipsum dolor sit amet consectetur.
           </p>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
